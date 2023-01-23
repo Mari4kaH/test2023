@@ -1,0 +1,41 @@
+﻿@page
+@model test.Pages.DriverVechile.IndexModel
+@{
+}
+<br>
+<h2>List of Vechile Drivers</h2>
+<a class='btn btn-primary btn-sm' href='/VechileDriver/Create'>New Vechile Driver</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Asset Number</th>
+			<th>Registration</th>
+			<th>Manufactured</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Licence Number</th>
+			<th>Mobile</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var v in Model.driverVechiles)
+		{
+			<tr>
+				<td>@v.assetNumber</td>
+				<td>@v.registration</td>
+				<td>@v.manufaktured</td>
+				<td>@v.name</td>
+				<td>@v.surname</td>
+				<td>@v.licenceNumber</td>
+				<td>@v.phoneNumber</td>
+				<td>@v.email</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Drivers/Edit?id=@v.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Drivers/Delete?id=@v.id">Delete</a>
+				</td>
+
+			</tr>
+		}
+	</tbody>
+</table>

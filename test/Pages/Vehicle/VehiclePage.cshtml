@@ -1,0 +1,31 @@
+﻿@page
+@model test.Pages.Vehicle.VehiclePageModel
+@{
+}
+<br>
+<h2>List of Vechile </h2>
+<a class='btn btn-primary btn-sm' href='/Vehicle/Create'>New Vehicle</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Asset Number</th>
+			<th>Registration</th>
+			<th>Manufactured</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var v in Model.vehicles)
+		{
+			<tr>
+				<td>@v.assetNumber</td>
+				<td>@v.registration</td>
+				<td>@v.manufactured</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Vehicle/Edit?id=@v.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Vehicle/Delete?id=@v.id">Delete</a>
+				</td>
+
+			</tr>
+		}
+	</tbody>
+</table>
